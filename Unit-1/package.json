@@ -1,0 +1,16 @@
+{
+  "name": "unit-1",
+  "version": "1.0.0",
+  "description": "In this unit we will create a device, add few datapoint to it and visualise the data inside an application.",
+  "main": "1.2-data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
