@@ -28,6 +28,9 @@ Once fully loaded you should see the IDE where we will be able to edit files
 
 We will not cover all the options and features of the microservice IDE in this section but we will visist it back later in the training.
 
+
+## 2.2 Quick look at the code
+
 ### index.js 
 
 Let's start opening the index.js file inside our microservice IDE. You can see there sample codes. We wont use this code for today's session. 
@@ -65,7 +68,7 @@ then run our microservice in dev mode
 
 if not error are showing we should be good to go ! 
 
-### Deployment
+## 2.3 Deployment of the microservice 
 
 End the node process by doing a CTRL+C. We will now commit our changes and deploy our microservice. The AEP Microservices has git build in and the microservice is pulling the code of its master branch when they deploy themselves.
 
@@ -81,13 +84,31 @@ When fully deployed you build will be visible on the builds page with a color in
 
 We can now leave the idea and go back to the microservice page and see that our microservice is now live and deployed.
 
-## 2.2 What is a label ? 
 
-## 2.3 Quick look at the code
 
-## 2.4 Deployment of the microservice 
 
-## 2.5 Monitoring the microservice
+## 2.4 What's a label ? 
 
+In the Davra AEP ecosystem a **label** is key:value attribute that can be attached to many ressources like a device, a twin, a role, an application and more ...
+
+**Labels** are really usefull to create relationship between entities (especially twins but this topic is for Unit-3). 
+
+To give us an idea on how labels works will add few of them to the devices we have created in step 2.1 
+
+In the device page find the **Labels** component. Then click on the pencil icon to add new labels. Click **Add a Label**, in the key section select **Add new**, name it `unit` and set a value of 2 press save. Do the same for the other devices created in unit 2. And set a label of unit:1 to the device we created in our unit 1. 
+
+Once all your devices labeled let's go to the application we build in Unit-1 
+
+
+## 2.5 Labels application 
+
+When a datapoint is pushed to a devices the datapoint gets taged with all the labels of that device. This will be really useful to filter data inside our charts and tables.
+
+### New filter 
+
+
+
+
+## Conclusion
 
 
