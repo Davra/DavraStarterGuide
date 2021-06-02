@@ -102,13 +102,17 @@ Once all your devices labeled let's go to the application we build in Unit-1
 
 ## 2.5 Labels application 
 
-When a datapoint is pushed to a devices the datapoint gets taged with all the labels of that device. This will be really useful to filter data inside our charts and tables.
+When a datapoint is pushed to a device the datapoint gets taged with all the labels of that device. This will be really useful to filter data inside our charts and tables.
 
 ### New filter 
 
-
+We are now going to use  our new label to filter devices inside our application.
+ 
+To do so let's go back to our application  in edit mode in the top right corner click on the future icon just next to the question mark icon a pop-up should rise in a number of different labels. We are going to click on the unit check box and press save we should now see in the top of the application a new select box for the unit filter.
+ 
+If you click on it you should be able to see list of units we previously created by selecting one of this unit we will be filtering the devices rendered in the different widgets  of the application. 
 
 
 ## Conclusion
 
-
+So in this unit  we covered  the basics of microservices,  had  our first experience labels and we'll drill deeper into these topics later in the course. Let's start Unit 3 to learn about digital twins. 

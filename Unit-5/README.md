@@ -1,5 +1,14 @@
 # Unit 5 : User, Roles & Permissions
 
+In this unit we will 
+
+AEP Features covered : 
+* User
+* Roles
+* Labels
+
+
+
 ## Users
 
 The administration of users is central to the security model within Davra. An administrator may create/delete users but also may assign other users the capacity to create and delete users. Users may be assigned roles and through the roles, their permissions and visibility of devices, applications & data is managed. See the roles page for further details.
@@ -25,3 +34,4 @@ The "Features" tab shows a list of features for which users with this role may "
 The "Resources" tab displays the list of "Access Control Statements" applicable for this role. Each statement added to this list alters the range of permissions for the role and any user assigned that role. Precise statements can be made to apply "view", "edit" or "delete" abilities for applications, devices and data etc. It is at this point that the scope of the statement may be applied to "Everything" or restricted to those items which have a particular "Label" applied.
 
 Note: The Administrator and Operator roles which are initially installed are not editable. Attempts to alter the access controls for these two special roles will appear to work for a moment but will be reinstated as original. It is advisable to create new roles for these matters.
+
