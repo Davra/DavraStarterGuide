@@ -88,3 +88,6 @@ To go deeper into the resources management for users you can now go play inside 
 
 
 
+## Conclusion
+
+In the unit we covered the main feature of the roles and users. The platform allows more depth to it with the concept of Oauth client but we wont cover it in this training. If you want to know more about it check the following ressource https://help.davra.com/#/oauthclients or https://www.developer.davra.com/api/#oauth-clients
