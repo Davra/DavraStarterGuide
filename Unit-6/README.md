@@ -1,5 +1,13 @@
 # Unit 6: Geofences & Rules
 
+In this unit, we will have deeper look into the rules engines and geofences
+
+AEP Features covered :
+* User
+* Roles
+* Labels
+
+
 ## Geofence
 
 This feature of the Davra Platform allows for the creation of Geofences which can be used to trigger events upon an IoT device entering or leaving. Users can create multiple 'zones' within a single Geofence, or have a single zone.
