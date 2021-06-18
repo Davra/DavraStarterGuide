@@ -1,6 +1,6 @@
 # Unit 5 : User, Roles & Permissions
 
-In this unit, we will
+In this unit, we will have an introduction to roles based access permissions and users.
 
 AEP Features covered :
 * User
