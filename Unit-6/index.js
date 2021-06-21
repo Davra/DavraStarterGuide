@@ -49,7 +49,9 @@ function connecthingWidgetInit(context) {
     console.log('Init: context arrived, starting widget initialisation');
     // Listen for filter updates
     if (context !== undefined) {
+        console.log("QUENIN",context.filters.getFilterValues())
         context.filters.subscribe(handleFilterChange);
+        
     }
 
     map = L.map('leafletmap', {
@@ -68,7 +70,72 @@ function connecthingWidgetInit(context) {
         var basemapid = $(this).find('img:visible').attr('id');
         setBasemap(basemapid);
     });
-    
+  //when the map is clicked create a buffer around the click point of the specified distance.
+    map.on("click", function(evt){
+    console.log('Left click on map noticed. Maybe move device to here ', evt, evt.latlng.lat, evt.latlng.lng);
+    var htmlPopup = '<div class="custompopupmovement ">Change Device Location<hr>Move device to selected location?<hr>' +
+    '<div style="text-align: right; padding-top: 6px;">' +
+    '<button class="btn btn-info float-right" onclick="$(this).closest(\'.leaflet-popup\').hide()">Cancel</button>' +
+    '<button class="btn btn-primary float-right" onclick="moveDeviceTo(' +
+    evt.latlng.lat.toString() + ',' + evt.latlng.lng.toString() + ')">Move</button></div>' +
+    '</div>';
+    // Create a circle marker at candidate location
+    var markerCandidate = L.circleMarker([evt.latlng.lat, evt.latlng.lng], {
+    radius: 0.1,
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 1
+    });
+    markerCandidate.bindPopup(htmlPopup, {'className' : 'popup-leaflet-underneath', 'width' : '120px'});
+    markerCandidate.addTo(map);
+    markerCandidate.openPopup();
+    });  
+    if (context !== undefined) {
+    handleFilterChange(context.filters.getFilterValues())
+        
+    }
+}
+// Move the device to a new location
+var moveDeviceTo = function (newLat, newLng) {
+    console.log('Moving device via map to ', newLat, newLng);
+    $('.custompopupmovement').html('Moving device...');
+
+    if (!deviceUUID) {
+        console.log('Cannot move device, unknown device uuid');
+        return false;
+    }
+
+    var latitude = parseFloat(newLat);
+    var longitude = parseFloat(newLng);
+
+    widgetUtils.ajaxPut('/api/v1/iotdata', {
+        "UUID": deviceUUID,
+        "latitude": latitude,
+        "longitude": longitude,
+        "name": "noname",
+        "value": 100,
+        "msg_type": "datum"
+    }, function (err, response) {
+        console.log('After device movement upload: ', err, response);
+
+        if (err !== undefined && err !== null) {
+            console.log("ERROR:", err);
+            comDavraPNotifyError("Failed to update device location due to network connection issues");
+            return;
+        }
+
+        var deviceLocation = {
+            latitude: latitude,
+            longitude: longitude
+        };
+
+        console.log('Publishing device to message bus:', deviceLocation);
+        widgetUtils.comDavraDeviceLocationMessageBus.publish(deviceLocation);
+
+        setTimeout(function () { // Timeout of 1 sec to allow server to propagate changes
+            window.location.reload();
+        }, 1500);
+    });
 }
 
 // This function remove all layers from the map
@@ -386,7 +453,32 @@ function drawAllApplicableAlarms() {
     }).addTo(map);
 }
 
+function getDeviceFromServer(id, callback) {
 
+    $.ajax('/api/v1/devices/' + id, {
+        cache: false,
+        context: this,
+        dataType: "json",
+        method: "GET",
+        processData: true,
+        contentType: "application/json",
+
+        error: function (xhr, status, err) {
+            console.log('Error getting connecthingGetDevicesFromServer', err);
+        },
+
+        success: function (data, status, xhr) {
+            console.log('Got list of devices from server:', data);
+            if (data) {
+                if (callback) {
+                    callback(null, data);
+                }
+            }
+        }
+    });
+}
+
+var deviceUUID;
 // this function is called when a filter is updated
 function handleFilterChange(filters) {
     console.log('widget filterChange occurred ', filters);
@@ -395,7 +487,11 @@ function handleFilterChange(filters) {
         var deviceid = filters.tags.deviceId[0];    
         var allassetswithicons = getDevicesIcon().records;
         var filtered = _.filter(allassetswithicons, {"id": Number(deviceid)})[0];
-
+        getDeviceFromServer(deviceid, function( err, data ){
+            console.log(data,data.records[0].UUID)
+            deviceUUID = data.records[0].UUID
+            
+        })
         ArrayOfDevices = []; // An array to store the IDs of devices to draw on screen
         ArrayOfMarkers = []; // An array of all the marker objects which are placed on screeen
         ArrayOfTracks = [];
