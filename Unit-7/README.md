@@ -161,6 +161,7 @@ Let's wrap up this app and edit our last chart: the line chart.
 We will use this chart to display data from the timeseries API
 
 
+ 
 Now let's deploy our app!
 
 ## Deploy a Web application

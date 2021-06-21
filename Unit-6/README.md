@@ -110,7 +110,7 @@ That's it your rule has been fired. You can now check your rule page and then go
 
 ### Visualization
 
-We will now clone and customize an existing widget in order to visualize the path our device has been doing. To do so go to the **advanced Components** page in the Component toolkit section. Find the widget called **ESRI Map for single device** and clone it. Then in change the content of the index.js file with the one from the index.js file in the unit-6 directory. Save your changes and publish your new widget.
+We will now clone and customize an existing widget in order to visualize the path our device has been doing. To do so go to the **advanced Components** page in the Component toolkit section. Find the widget called **ESRI Map for single device** and clone it. Then in change the content of the index.js file with the one from the [index.js](https://github.com/Davra/DavraStarterGuide/blob/main/Unit-6/index.js) file in the unit-6 directory. Save your changes and publish your new widget.
 
 Go now to your app, add a new page and add your freshly created widget. Resize it widely and select a device inside the device filter. Click now on the map to move your device and see its journey.
 

@@ -49,6 +49,11 @@ We will need to add the folowing metrics using the add button
 | apparent.power | Apparent Power | W |
 
 ### The IOT datapoints 
+Download the following files into a folder : 
+* [1.2-data.js](https://github.com/Davra/DavraStarterGuide/blob/main/Unit-1/1.2-data.js)
+* [config.json](https://github.com/Davra/DavraStarterGuide/blob/main/Unit-1/config.json)
+* [package.json](https://github.com/Davra/DavraStarterGuide/blob/main/Unit-1/package.json)
+
 We will use premade script to generate the datapoints. 
 First we will have to edit the config.json file. 
 ```

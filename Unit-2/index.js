@@ -91,7 +91,7 @@ function runAutmation(){
         deviceExist(uuid).then(res => {
             if (res.totalRecords && res.records
                 && res.records[0]
-                && res.records[0].UUID == config.deviceUUID){
+                && res.records[0].UUID == uuid){
                     var datapoints = generateDataPoints(uuid)
                     sendToIotdata(datapoints)
                 } else {

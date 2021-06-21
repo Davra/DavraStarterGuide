@@ -35,11 +35,11 @@ We will not cover all the options and features of the microservice IDE in this s
 
 Let's start opening the index.js file inside our microservice IDE. You can see there sample codes. We won't use this code for today's session. 
 
-Replace the content of the index.js file with the content of the `Unit-2/index.js` file. Once done, do a **CTRL+S** or **CMD+S** to save your changes.
+Replace the content of the index.js file with the content of the [Unit-2/index.js](https://github.com/Davra/DavraStarterGuide/blob/main/Unit-2/index.js) file. Once done, do a **CTRL+S** or **CMD+S** to save your changes.
 
 ### devices.json
 
-Create a new file by **right clicking** on the **data-generator** folder then click **new file**, name it **devices.json** and copy the content of the `Unit-2/devices.json` inside it.
+Create a new file by **right clicking** on the **data-generator** folder then click **new file**, name it **devices.json** and copy the content of the [Unit-2/devices.json](https://github.com/Davra/DavraStarterGuide/blob/main/Unit-2/devices.json) inside it.
 
 This will be the list of devices UUIDs we will have to set in order to generate datapoints for them.
 

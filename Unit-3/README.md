@@ -116,7 +116,7 @@ then
 
 This would allow us to customize the javascript code that is rendering our chart.
 
-Then select `index.js` in the top-left dropdown and copy the content of the `index.js` file inside the Unit-3 repository. Save your changes.
+Then select `index.js` in the top-left dropdown and copy the content of this [index.js](https://github.com/Davra/DavraStarterGuide/blob/main/Unit-3/index.js) file from the Unit-3 repository. Save your changes.
 
 You can now test your changes by setting your chart setting to use the `temperature` metric and group it by `building` click apply settings and the widget preview should display the legend with the name of the building
 
