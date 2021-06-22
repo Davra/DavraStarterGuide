@@ -92,6 +92,18 @@ chart.data = await this.getPieChartData()
 
 ```
 
+change the data fields by replacing
+
+```
+pieSeries.dataFields.value = "litres";
+pieSeries.dataFields.category = "country";
+
+// with 
+
+pieSeries.dataFields.value = "count";
+pieSeries.dataFields.category = "name";
+```
+
 and reduce the size of the legend by adding `pieSeries.labels.template.fontSize = 10` like so :
 
 ```
@@ -142,6 +154,18 @@ async createSecondChart() {
 then inside **createSecondChart** change the name of the chart to **Top 5 used metrics**
 ```
 title.text = "Top 5 used metrics";
+```
+
+change the data fields by replacing
+
+```
+series.dataFields.categoryX = "country";
+series.dataFields.valueY = "visits";
+
+// with 
+
+series.dataFields.categoryX = "name";
+series.dataFields.valueY = "count";
 ```
 
 change the data source by replacing
