@@ -49,9 +49,7 @@ function connecthingWidgetInit(context) {
     console.log('Init: context arrived, starting widget initialisation');
     // Listen for filter updates
     if (context !== undefined) {
-        console.log("QUENIN",context.filters.getFilterValues())
         context.filters.subscribe(handleFilterChange);
-        
     }
 
     map = L.map('leafletmap', {
