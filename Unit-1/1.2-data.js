@@ -74,7 +74,7 @@ console.log(" -- Config Validated -- " )
 
 
 console.log(" -- Data generation -- " )
-const date = moment().subtract(24, "day");
+const date = moment().subtract(24, "hour");
 const data = [];
 for (let index = 0; index < 24; index++) {
     let time = date.valueOf();
