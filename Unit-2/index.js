@@ -1,6 +1,6 @@
 const rp = require('request-promise');
-const fs = require('fs');
 const deviceUUIDs = require('./devices.json');
+const fs = require('fs');
 const token = fs.readFileSync('/etc/connecthing-api/token')
 const platformURL = "http://api.connecthing/"
 function randomIntFromInterval(min, max) { // min and max included 
@@ -10,7 +10,7 @@ function randomIntFromInterval(min, max) { // min and max included
 function deviceExist(UUID) {
     var options = {
         method: 'GET',
-        url: platformURL + '/api/v1/devices/' + UUID,
+        url: platformURL + 'api/v1/devices/' + UUID,
         rejectUnauthorized: false,
         headers: {
           'Authorization': 'Bearer ' + token
@@ -24,7 +24,7 @@ function sendToIotdata(payload) {
 
     var options = {
         method: 'PUT',
-        url: platformURL + '/api/v1/iotdata',
+        url: platformURL + 'api/v1/iotdata',
         rejectUnauthorized: false,
         headers: {
           'Authorization': 'Bearer ' + token
@@ -87,6 +87,7 @@ function generateDataPoints(uuid){
 
 function runAutmation(){
     deviceUUIDs.forEach( uuid => {
+        console.log(uuid)
         deviceExist(uuid).then(res => {
             if (res.totalRecords && res.records
                 && res.records[0]
@@ -102,6 +103,6 @@ function runAutmation(){
     })
 }
 
-
+runAutmation()
 
 setInterval(runAutmation, 60000)
