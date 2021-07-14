@@ -1,4 +1,5 @@
 const rp = require('request-promise');
+const fs = require('fs');
 const deviceUUIDs = require('./devices.json');
 const token = fs.readFileSync('/etc/connecthing-api/token')
 const platformURL = "http://api.connecthing/"
